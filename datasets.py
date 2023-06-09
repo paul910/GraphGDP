@@ -79,6 +79,8 @@ class StructureDataset(InMemoryDataset):
             graphs_nx = pk.load(f)
         data_list = [from_networkx(G) for G in graphs_nx]
 
+        print(data_list[0])
+
         if self.pre_filter is not None:
             data_list = [data for data in data_list if self.pre_filter(data)]
 

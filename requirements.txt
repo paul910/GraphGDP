@@ -1,6 +1,13 @@
-ml-collections
-absl-py
-pandas
+absl_py
+dgl
 matplotlib
-tensorboard
+ml_collections
+networkx
+numpy
+pandas
+scikit_learn
+scipy
+torch
+torch_geometric
+torch_scatter
 torchdiffeq

@@ -79,7 +79,7 @@ class StructureDataset(InMemoryDataset):
             graphs_nx = pk.load(f)
         data_list = [from_networkx(G) for G in graphs_nx]
 
-        print(data_list[0])
+        print(data_list[0].node_attr)
 
         if self.pre_filter is not None:
             data_list = [data for data in data_list if self.pre_filter(data)]
@@ -88,6 +88,9 @@ class StructureDataset(InMemoryDataset):
             data_list = [self.pre_transform(data) for data in data_list]
 
         self.data, self.slices = self.collate(data_list)
+
+        print(self.data[0])
+        print(self.slices[0])
         torch.save((self.data, self.slices), self.processed_paths[0])
 
     @torch.no_grad()
